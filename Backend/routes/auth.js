@@ -6,7 +6,9 @@ const { login } = require('../controllers/authController');
  * @swagger
  * /login:
  *   post:
- *     summary: User login
+ *     summary: User or Admin login
+ *     description: |
+ *       Login as either an admin or a regular user. Use the credentials seeded in the database (see README). The returned JWT will include the user's role (admin or user).
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -20,11 +22,13 @@ const { login } = require('../controllers/authController');
  *             properties:
  *               username:
  *                 type: string
+ *                 example: admin
  *               password:
  *                 type: string
+ *                 example: admin123
  *     responses:
  *       200:
- *         description: JWT token
+ *         description: JWT token (with user role)
  *         content:
  *           application/json:
  *             schema:
@@ -32,6 +36,7 @@ const { login } = require('../controllers/authController');
  *               properties:
  *                 token:
  *                   type: string
+ *                   description: JWT token (contains user id, username, and role)
  *       400:
  *         description: Invalid credentials
  */
