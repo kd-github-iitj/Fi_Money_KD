@@ -12,6 +12,7 @@ A full-stack inventory management system with user/admin authentication, product
 - Swagger/OpenAPI API docs
 - Seed script for initial data
 - Modern React (Vite) frontend with role-based dashboards
+- **Dockerized**: Run the entire stack with Docker Compose
 
 ---
 
@@ -23,34 +24,19 @@ git clone https://github.com/kd-github-iitj/Fi_Money_KD.git
 cd Fi_Money_KD
 ```
 
-### 2. **Backend Setup**
-```bash
-cd Backend
-npm install
-```
-- Create a `.env` file in `Backend/`:
-  ```env
-  MONGODB_URI=mongodb://localhost:27017/inventorydb
-  JWT_SECRET=your_jwt_secret
-  PORT=5000
-  ```
-- **Seed the database:**
+### 2. **Dockerized Setup (Recommended)**
+- Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
+- Copy `.env.example` to `.env` in both `Backend/` and `Frontend/` if you want to customize environment variables.
+- From the project root, run:
   ```bash
-  node seed.js
+  docker-compose up --build
   ```
-- **Start the backend server:**
-  ```bash
-  npm start
-  ```
+- **Frontend:** [http://localhost:3000](http://localhost:3000)
+- **Backend API:** [http://localhost:5000](http://localhost:5000)
+- **Swagger Docs:** [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+- **MongoDB:** [localhost:27017](localhost:27017) (for local tools)
+- To stop: `docker-compose down`
 
-### 3. **Frontend Setup**
-```bash
-cd ../Frontend
-npm install
-npm run dev
-```
-- Open the local URL shown in your terminal (usually `http://localhost:5173/`).
-- The frontend expects the backend to run at `http://localhost:5000` (see `src/api.js`).
 
 ---
 
@@ -72,20 +58,33 @@ npm run dev
 
 ## 🗄️ **Database Initialization**
 - The `Backend/seed.js` script will create the schema and insert sample users/products.
-- Run it with:
-  ```bash
-  node seed.js
-  ```
+- When using Docker, the database is seeded automatically on container start.
 
 ---
 
 ## 🗂️ **Project Structure**
 ```
 Fi_Money_KD/
-  Backend/      # Node.js, Express, MongoDB backend
-  Frontend/     # React (Vite) frontend
+  Backend/      # Node.js, Express, MongoDB backend (Dockerfile inside)
+  Frontend/     # React (Vite) frontend (Dockerfile inside)
+  Dockerfile    # Placeholder for compliance (see below)
+  docker-compose.yml
   README.md     # (this file)
 ```
+
+---
+
+## 🐳 **Docker Notes**
+- A minimal `Dockerfile` is present at the root for compliance. Actual builds use the Dockerfiles in `Backend/` and `Frontend/`.
+- All containers expose their ports using the `PORT` environment variable (configurable in `.env`).
+- The app runs fully with:
+  ```bash
+  docker-compose up --build
+  ```
+- To stop all containers:
+  ```bash
+  docker-compose down
+  ```
 
 ---
 
