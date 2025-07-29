@@ -88,14 +88,6 @@ Fi_Money_KD/
 
 ---
 
-## 📤 **Submission Guidelines**
-- **GitHub link of the codebase:** [https://github.com/kd-github-iitj/Fi_Money_KD](https://github.com/kd-github-iitj/Fi_Money_KD)
-- **Setup instructions:** See above
-- **API documentation:** See Swagger UI or Postman collection
-- **Database initialization script:** See `Backend/seed.js`
-
----
-
 ## 💡 **Notes**
 - For production, use environment variables and secure secrets.
 - You can deploy the backend (Render/Railway) and frontend (Vercel/Netlify) for free.
