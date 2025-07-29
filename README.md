@@ -1,6 +1,6 @@
 # Inventory Management Tool
 
-[Preview Images](https://www.notion.so/Fi_Money_Krishna_Dev-22475458c13c8041958bd0e86930bd01?source=copy_link)
+# [Preview Images Link](https://www.notion.so/Fi_Money_Krishna_Dev-22475458c13c8041958bd0e86930bd01?source=copy_link)
 
 A full-stack inventory management system with user/admin authentication, product management, analytics, and a modern React frontend.
 
